@@ -5,8 +5,19 @@ import { isNumber, orderBy } from 'lodash'
 export const selectGroceryEntriesState = (state: RootState) =>
   state.groceryEntries
 
-export const selectEntryById = (id: string) =>
-  createSelector(selectGroceryEntriesState, state => state.records?.[id])
+export const selectEntryById = (id?: string) =>
+  createSelector(selectGroceryEntriesState, state =>
+    id ? state.records?.[id] : null,
+  )
+
+export const selectEntryStatusHistory = (id?: string) =>
+  createSelector(selectEntryById(id), record => {
+    if (!record?.statusHistory) {
+      return []
+    }
+
+    return orderBy(Object.values(record.statusHistory), ['date'], ['desc'])
+  })
 
 export const selectCurrentFilter = createSelector(
   selectGroceryEntriesState,

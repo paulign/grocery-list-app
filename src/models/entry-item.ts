@@ -28,6 +28,12 @@ export const entryItemStatusOptions = Object.entries(EntryItemStatuses).map(
   ([key, value]) => ({ key, value, label: upperFirst(key) }),
 )
 
+export const entryItemStatusLabelsByValue = entryItemStatusOptions.reduce<
+  Record<string, string>
+>((acc, curr) => {
+  return { ...acc, [curr.value]: curr.label }
+}, {})
+
 export const entryItemPriorities = Array.from({ length: 5 }).map(
   (_, index) => index + 1,
 )

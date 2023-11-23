@@ -6,7 +6,7 @@ import {
 import { useAppDispatch } from '@src/redux/utils'
 import classNames from 'classnames'
 import { useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 type TEntryItemCardProps = {
   item: IEntryItem
@@ -15,6 +15,7 @@ type TEntryItemCardProps = {
 
 const EntryItemCard = ({ item, className }: TEntryItemCardProps) => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const { id, title, priority, status, statusUpdatedAt } = item
 
   const isRanOut = status === EntryItemStatuses.RAN_OUT
@@ -25,7 +26,8 @@ const EntryItemCard = ({ item, className }: TEntryItemCardProps) => {
 
   const onDeleteClick = useCallback(() => {
     dispatch(deleteEntry(id))
-  }, [dispatch, id])
+    navigate('/')
+  }, [dispatch, id, navigate])
 
   return (
     <div
