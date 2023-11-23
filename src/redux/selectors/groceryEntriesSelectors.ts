@@ -15,11 +15,12 @@ export const selectCurrentFilter = createSelector(
 
 export const selectSortedEntriesList = createSelector(
   selectGroceryEntriesState,
-  ({ records, currentFilter }) =>
-    orderBy(
-      Object.values(records || {}).filter(i =>
-        isNumber(currentFilter) ? i.status === currentFilter : true,
-      ),
-      ['priority', i => i.title.toLowerCase()],
-    ),
+  ({ records, currentFilter }) => {
+    const allRecords = Object.values(records || {})
+    const filteredRecords = isNumber(currentFilter)
+      ? allRecords.filter(i => i.status === currentFilter)
+      : allRecords
+
+    return orderBy(filteredRecords, ['priority', i => i.title.toLowerCase()])
+  },
 )

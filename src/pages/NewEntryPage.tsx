@@ -1,4 +1,4 @@
-import NewEntryForm from '@src/components/NewEntryForm'
+import NewEntryForm from '@src/components/forms/NewEntryForm'
 import { addEntry } from '@src/redux/slices/groceryEntries'
 import { useAppDispatch } from '@src/redux/utils'
 import { TEntryItemSchema } from '@src/validators/entry-item'
