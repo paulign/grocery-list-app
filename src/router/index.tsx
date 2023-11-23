@@ -1,4 +1,5 @@
 import AppLayout from '@src/components/layouts/AppLayout'
+import NewEntryPage from '@src/pages/NewEntryPage'
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -20,7 +21,7 @@ const router = createBrowserRouter(
             </div>
           }
         />
-        <Route path="new" element={<div>Add new entry</div>} />
+        <Route path="new" element={<NewEntryPage />} />
         <Route path="entry/:id" element={<div>Entry details</div>} />
         <Route path="*" loader={() => redirect('/')} />
       </Route>

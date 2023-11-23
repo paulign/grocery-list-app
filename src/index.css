@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply inline-flex h-12 cursor-pointer items-center justify-center rounded-md bg-neutral-300 text-center text-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-200 disabled:text-neutral-700;
+}
+
+.btn.btn-primary {
+  @apply bg-teal-800 text-white disabled:bg-teal-600 disabled:text-neutral-50;
+}
