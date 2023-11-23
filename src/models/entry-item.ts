@@ -20,8 +20,8 @@ export interface IEntryItem {
   title: string
   priority?: number
   status: TEntryItemStatus
-  // TODO - add type for history items
   statusHistory?: Record<string, IEntryItemStatusHistoryRecord>
+  statusUpdatedAt: number
 }
 
 export const entryItemStatusOptions = Object.entries(EntryItemStatuses).map(

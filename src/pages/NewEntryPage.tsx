@@ -15,7 +15,7 @@ const NewEntryPage = () => {
   )
 
   return (
-    <div className="flex-1 border-l border-l-neutral-300 p-5">
+    <div className="flex-1 overflow-auto border-l border-l-neutral-300 p-5">
       <NewEntryForm onSubmit={onSubmit} />
     </div>
   )

@@ -1,4 +1,5 @@
 import AppLayout from '@src/components/layouts/AppLayout'
+import EntriesListPage from '@src/pages/EntriesListPage'
 import NewEntryPage from '@src/pages/NewEntryPage'
 import {
   createBrowserRouter,
@@ -11,15 +12,18 @@ import {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<AppLayout />}>
+    <Route
+      element={
+        <AppLayout>
+          <EntriesListPage />
+        </AppLayout>
+      }
+    >
       <Route path="/" element={<Outlet />}>
+        {/* TODO - move empty state and Entry details pages content to separate files */}
         <Route
           index
-          element={
-            <div className="hidden md:block">
-              Select entry in the list to see it's details
-            </div>
-          }
+          element={<div>Select entry in the list to see it's details</div>}
         />
         <Route path="new" element={<NewEntryPage />} />
         <Route path="entry/:id" element={<div>Entry details</div>} />
