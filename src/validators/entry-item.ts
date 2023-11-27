@@ -8,6 +8,7 @@ export const EntryItemSchema = Yup.object().shape({
     .label('Priority')
     .required()
     .default(1),
+  quantity: Yup.number().min(1).label('Quantity').required().default(1),
 })
 
 export type TEntryItemSchema = Yup.InferType<typeof EntryItemSchema>

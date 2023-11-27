@@ -16,7 +16,7 @@ type TEntryItemCardProps = {
 const EntryItemCard = ({ item, className }: TEntryItemCardProps) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const { id, title, priority, status, statusUpdatedAt } = item
+  const { id, title, priority, status, statusUpdatedAt, quantity } = item
 
   const isRanOut = status === EntryItemStatuses.RAN_OUT
 
@@ -50,6 +50,7 @@ const EntryItemCard = ({ item, className }: TEntryItemCardProps) => {
         <div>
           <p className="font-semibold">{title}</p>
           <p className="text-sm">Priority: {priority}</p>
+          <p className="text-sm">Quantity: {quantity || 0}</p>
           <p className="text-sm">
             Status updated: {new Date(statusUpdatedAt).toLocaleString()}
           </p>

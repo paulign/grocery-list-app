@@ -64,6 +64,17 @@ const NewEntryForm = ({ onSubmit }: TNewEntryFormProps) => {
           ))}
         </select>
       </div>
+      <div className="flex flex-col gap-y-2">
+        <label className="block text-sm font-semibold" htmlFor="title-input">
+          Quantity
+        </label>
+        <input
+          className="block h-12 rounded-md border border-neutral-500 px-3"
+          {...register('quantity')}
+          id="title-input"
+          type="number"
+        />
+      </div>
       <button className="btn btn-primary" type="submit" disabled={!isValid}>
         Add Entry
       </button>

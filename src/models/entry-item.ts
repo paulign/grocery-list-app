@@ -22,6 +22,7 @@ export interface IEntryItem {
   status: TEntryItemStatus
   statusHistory?: Record<string, IEntryItemStatusHistoryRecord>
   statusUpdatedAt: number
+  quantity: number
 }
 
 export const entryItemStatusOptions = Object.entries(EntryItemStatuses).map(
